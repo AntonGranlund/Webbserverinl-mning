@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing Game</title>
+</head>
+<body>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        #registration, #game {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+        }
+
+        #registration h2, #game h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        #registration input, #game input {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        body {
+            background-image: url('path/to/image.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        #registration button, #game button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #message {
+            text-align: center;
+            color: #333;
+            font-weight: bold;
+        }
+
+        #guesses, #high_score {
+            font-weight: bold;
+        }
+    </style>
+    <h1>Guessing Game</h1>
+    <div id="registration">
+        <h2>Register</h2>
+        <input type="text" id="username" placeholder="Enter username">
+        <button onclick="register()">Register</button>
+    </div> 
+    <div id="game" style="display:none;">
+        <h2>Guess the number 1-100</h2>
+        <input type="number" id="guess" placeholder="Enter your guess">
+        <button onclick="makeGuess()">Guess</button>
+        <p id="message"></p>
+        <p>Guesses: <span id="guesses">0</span></p>
+        <p>High Score: <span id="high_score">0</span></p>
+    </div>
+
+    <script>
+        function register() {
+            document.getElementById("registration").style.display = "none";
+            document.getElementById("game").style.display = "block";
+        }
+        if (guess == correct_number) {
+            (high_score +=1);
+        }
+    </script>
+
+    <script>
+        function makeGuess() {
+            var guessInput = document.getElementById("guess");
+            var guess = parseInt(guessInput.value);
+
+           
+
+            guessInput.value = ""; 
+
+            var guessesElement = document.getElementById("guesses");
+            var guesses = parseInt(guessesElement.innerText);
+            guessesElement.innerText = guesses + 1;
+        }
+        function checkGuess(guess) {
+        var randomNumber = Math.floor(Math.random() * 3) + 1; 
+
+        if (guess === randomNumber) {
+            document.getElementById("message").innerText = "Congratulations! You won!";
+        } else {
+            document.getElementById("message").innerText = "Wrong guess. Try again!";
+        }
+    }
+
+    function makeGuess() {
+        var guessInput = document.getElementById("guess");
+        var guess = parseInt(guessInput.value);
+
+        checkGuess(guess);
+
+        guessInput.value = ""; // Clear the input field after each guess
+
+        var guessesElement = document.getElementById("guesses");
+        var guesses = parseInt(guessesElement.innerText);
+        guessesElement.innerText = guesses + 1;
+
+      
+    }
+    </script>
+    <script>
+        function makeGuess() {
+            var guessInput = document.getElementById("guess");
+            var guess = parseInt(guessInput.value);
+
+            var correct_number = Math.floor(Math.random() * 100) + 1; // Generate a new random number
+
+            checkGuess(guess, correct_number); // Pass the correct_number to the checkGuess function
+
+            guessInput.value = ""; // Clear the input field after each guess
+
+            var guessesElement = document.getElementById("guesses");
+            var guesses = parseInt(guessesElement.innerText);
+            guessesElement.innerText = guesses + 1;
+
+            var highScoreElement = document.getElementById("high_score");
+            var highScore = parseInt(highScoreElement.innerText);
+            if (guess === correct_number) {
+                highScoreElement.innerText = highScore + 1;
+            }
+        }
+        var correct_number = Math.floor(Math.random() * 100) + 1;
+
+        function register() {
+            document.getElementById("registration").style.display = "none";
+            document.getElementById("game").style.display = "block";
+        }
+
+        function makeGuess() {
+            var guessInput = document.getElementById("guess");
+            var guess = parseInt(guessInput.value);
+
+            checkGuess(guess);
+
+            guessInput.value = ""; // Clear the input field after each guess
+
+            var guessesElement = document.getElementById("guesses");
+            var guesses = parseInt(guessesElement.innerText);
+            guessesElement.innerText = guesses + 1;
+
+            var highScoreElement = document.getElementById("high_score");
+            var highScore = parseInt(highScoreElement.innerText);
+            if (guess === correct_number) {
+                highScoreElement.innerText = highScore + 1;
+            }
+        }
+
+        function checkGuess(guess) {
+            if (guess === correct_number) {
+                document.getElementById("message").innerText = "Congratulations! You won!";
+            } else {
+                document.getElementById("message").innerText = "Wrong guess. Try again!";
+            }
+        }
+   
+    </script>
+
+   
